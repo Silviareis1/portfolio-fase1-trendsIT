@@ -1,0 +1,661 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap');
+
+:root {
+   --background: #01050e;
+   --surface: #0a1120;
+   --text: #d3e0fd;
+   --primary: #7b9ff9;
+   --secondary: #7207ab;
+   --accent: #f124f5;
+   --primary-rgb: 123, 159, 249;
+   --secondary-rgb: 114, 7, 171;
+   --background-rgb: 1, 5, 14;
+   --surface-rgb: 10, 17, 32;
+   --text-rgb: 211, 224, 253;
+   --accent-rgb: 241, 36, 245;
+   --space-xs: 4px;
+   --space-sm: 8px;
+   --space-md: 16px;
+   --space-lg: 24px;
+   --space-xl: 40px;
+   --radius: 4px;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   font-family: 'Inter', sans-serif;
+   background-color: var(--background);
+   color: var(--text);
+   line-height: 1.6;
+   min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+   font: inherit;
+}
+
+img,
+svg {
+   max-width: 100%;
+   display: block;
+}
+
+header {
+   position: sticky;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background-color: var(--surface);
+   border-bottom: 1px solid rgba(var(--text-rgb), 0.08);
+   z-index: 20;
+}
+
+.header-inner {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: var(--space-lg);
+   display: flex;
+   flex-direction: column;
+   gap: var(--space-md);
+}
+
+.eyebrow {
+   color: rgba(var(--text-rgb), 0.65);
+   text-transform: uppercase;
+   letter-spacing: 0.2em;
+   font-size: 0.75rem;
+   margin-bottom: var(--space-sm);
+}
+
+header h1 {
+   font-size: clamp(2rem, 4vw, 3.5rem);
+   margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+   max-width: 720px;
+   color: rgba(var(--text-rgb), 0.86);
+}
+
+nav ul {
+   list-style: none;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: var(--space-md);
+}
+
+nav a {
+   color: var(--text);
+   text-decoration: none;
+   font-weight: 500;
+   transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+   color: var(--primary);
+}
+
+/* Estado Ativo no Menu */
+nav a.active {
+   color: var(--primary);
+   position: relative;
+}
+
+/* Linha indicadora abaixo do link ativo */
+nav a.active::after {
+   content: '';
+   position: absolute;
+   bottom: -4px;
+   left: 0;
+   width: 100%;
+   height: 2px;
+   background-color: var(--primary);
+   border-radius: 2px;
+   animation: fadeInLine 0.3s ease forwards;
+}
+
+@keyframes fadeInLine {
+   from {
+      opacity: 0;
+      transform: scaleX(0);
+   }
+   to {
+      opacity: 1;
+      transform: scaleX(1);
+   }
+}
+
+main {
+   max-width: 1024px;
+   margin: 0 auto;
+   padding: 0 var(--space-md);
+}
+
+.section-surface {
+   background: rgba(var(--surface-rgb), 0.92);
+   box-shadow: 0 14px 50px rgba(0, 0, 0, 0.18);
+   border-radius: 24px;
+   margin: calc(var(--space-xl) * 0.75) 0;
+}
+
+.section-header,
+.section-grid {
+   display: grid;
+   gap: var(--space-md);
+}
+
+.section-header {
+   padding: var(--space-xl) var(--space-md) 0;
+}
+
+.section-label {
+   display: inline-flex;
+   padding: 0.5rem 0.85rem;
+   background: rgba(var(--primary-rgb), 0.14);
+   color: var(--primary);
+   border-radius: 999px;
+   font-size: 0.8rem;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
+   margin-bottom: 0.8rem;
+}
+
+.section-header h2,
+#sobre h2 {
+   font-size: clamp(2rem, 3vw, 2.75rem);
+   line-height: 1.05;
+}
+
+.section-description,
+#sobre p,
+.about-copy p {
+   max-width: 760px;
+   color: rgba(var(--text-rgb), 0.82);
+}
+
+#sobre,.section-description {
+   padding: var(--space-xl) var(--space-md);
+}
+
+.section-grid {
+   grid-template-columns: 1fr;
+   gap: var(--space-lg);
+   padding: var(--space-xl) var(--space-md) var(--space-xl);
+}
+
+.about-copy {
+   display: grid;
+   gap: var(--space-lg);
+}
+
+.social-links {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+}
+
+.social-links a {
+   width: 52px;
+   height: 52px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   border-radius: 50%;
+
+   background: rgba(var(--text-rgb), 0.08);
+
+   color: var(--text);
+
+   text-decoration: none;
+
+   font-size: 1.4rem;
+
+   transition:
+      transform 0.2s ease,
+      background 0.2s ease,
+      color 0.2s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+   transform: translateY(-4px);
+   background: rgba(var(--primary-rgb), 0.16);
+   color: var(--primary);
+}
+
+/* cores individuais */
+
+.social-links a:nth-child(1):hover {
+   color: #0A66C2;
+}
+
+.social-links a:nth-child(2):hover {
+   color: #181717;
+}
+
+.social-links a:nth-child(3):hover {
+   color: #EA4335;
+}
+
+.social-links a:nth-child(4):hover {
+   color: #25D366;
+}
+
+.profile-card {
+   background: rgba(var(--background-rgb), 0.7);
+   border: 1px solid rgba(var(--text-rgb), 0.08);
+   border-radius: 24px;
+   padding: var(--space-lg);
+   display: grid;
+   gap: var(--space-md);
+   justify-items: center;
+   text-align: center;
+}
+
+.profile-image-wrapper {
+   width: 100%;
+   max-width: 280px;
+   aspect-ratio: 1 / 1;
+   border-radius: 24px;
+   overflow: hidden;
+   border: 1px solid rgba(var(--text-rgb), 0.08);
+   box-shadow: 4px 4px 0px var(--secondary);
+   margin: 0 auto;
+}
+
+.profile-image {
+   width: 100%;
+   height: 100%;
+   display: block;
+   object-fit: cover;
+   filter: saturate(1.1) contrast(1.05);
+   transition: transform 0.4s ease;
+}
+
+.profile-image:hover,
+.profile-image:focus-visible {
+   transform: scale(1.02);
+}
+
+.profile-details {
+   display: grid;
+   gap: 0.75rem;
+}
+
+.profile-role {
+   color: var(--primary);
+   font-weight: 700;
+}
+
+/* 1. Correção do alinhamento dos itens e marcadores dentro do cartão de perfil */
+.profile-details ul {
+   list-style: none;
+   display: grid;
+   gap: 0.5rem;
+   text-align: left; /* Garante que o texto fique alinhado à esquerda */
+   justify-self: center; /* Centraliza o bloco da lista dentro do card */
+}
+
+.profile-details li {
+   padding-left: 1.2rem; /* Aumentado levemente para dar respiro ao marcador */
+   position: relative;
+}
+
+.profile-details li::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 50%; /* Alinha a bolinha perfeitamente ao meio da linha de texto */
+   transform: translateY(-50%);
+   width: 6px;
+   height: 6px;
+   border-radius: 50%;
+   background: var(--primary);
+}
+
+.skill-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+   gap: var(--space-md);
+   padding: var(--space-xl) var(--space-md) var(--space-xl);
+}
+
+.skill-card {
+   background: rgba(var(--surface-rgb), 0.95);
+   border: 1px solid rgba(var(--text-rgb), 0.08);
+   border-radius: 20px;
+   padding: var(--space-lg);
+}
+
+.skill-card h3 {
+   margin-bottom: var(--space-sm);
+}
+
+.skill-items {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.9rem;
+}
+
+.project-grid {
+   display: grid;
+   gap: var(--space-md);
+
+   grid-template-columns:
+      repeat(auto-fit, minmax(280px, 1fr));
+
+   padding: 0 var(--space-md) var(--space-xl);
+}
+
+.project-card {
+   background: rgba(var(--background-rgb), 0.85);
+
+   border: 1px solid rgba(var(--text-rgb), 0.08);
+
+   border-radius: 24px;
+
+   padding: var(--space-lg);
+
+   display: grid;
+   gap: var(--space-md);
+
+   backdrop-filter: blur(12px);
+
+   transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+   transform: translateY(-6px);
+
+   border-color: rgba(var(--primary-rgb), 0.3);
+
+   box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.project-top {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.project-card h3 {
+   margin: 0;
+   font-size: 1.25rem;
+}
+
+.project-card p {
+   line-height: 1.6;
+   color: rgba(var(--text-rgb), 0.82);
+}
+
+/* badges */
+
+.project-tags {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+}
+
+.project-tags span {
+   padding: 0.45rem 0.9rem;
+
+   border-radius: 999px;
+
+   background: rgba(var(--primary-rgb), 0.12);
+
+   color: var(--primary);
+
+   font-size: 0.85rem;
+   font-weight: 500;
+}
+
+/* botões */
+
+.project-actions {
+   display: flex;
+   gap: var(--space-sm);
+   flex-wrap: wrap;
+}
+
+.project-actions a {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+
+   color: var(--text);
+
+   background: rgba(var(--text-rgb), 0.08);
+
+   padding: 0.8rem 1rem;
+
+   border-radius: 999px;
+
+   text-decoration: none;
+
+   transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      color 0.2s ease;
+}
+
+.project-actions a:hover,
+.project-actions a:focus-visible {
+   background: rgba(var(--primary-rgb), 0.16);
+
+   transform: translateY(-2px);
+
+   color: var(--primary);
+}
+
+.project-actions i {
+   font-size: 1rem;
+}
+
+#contato {
+   padding: var(--space-xl) var(--space-md) var(--space-xl);
+}
+
+.contact-form {
+   display: grid;
+   gap: var(--space-md);
+   margin-top: var(--space-lg);
+}
+
+.form-row {
+   display: grid;
+   gap: var(--space-md);
+   grid-template-columns: 1fr 1fr;
+}
+
+input,
+textarea {
+   width: 100%;
+   border: 1px solid rgba(var(--text-rgb), 0.12);
+   border-radius: var(--radius);
+   padding: var(--space-sm);
+   background: rgba(var(--surface-rgb), 0.85);
+   color: var(--text);
+   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+   min-height: 180px;
+   resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+   outline: none;
+   border-color: var(--primary);
+   box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.18);
+}
+
+.btn-primary {
+   background: var(--primary);
+   color: var(--background);
+   padding: var(--space-sm) var(--space-md);
+   border-radius: var(--radius);
+   box-shadow: 0px 4px 0px var(--secondary);
+   transition: transform 0.2s ease, filter 0.2s ease;
+   border: none;
+   font-weight: 700;
+   cursor: pointer;
+   justify-self: start;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+   filter: brightness(1.05);
+}
+
+.btn-primary:active {
+   transform: translateY(2px);
+   box-shadow: 0px 2px 0px var(--secondary);
+}
+
+footer {
+   border-top: 1px solid rgba(var(--text-rgb), 0.08);
+   padding: var(--space-md);
+   text-align: center;
+   color: rgba(var(--text-rgb), 0.7);
+   margin-top: var(--space-xl);
+}
+
+@media (min-width: 860px) {
+   .section-grid {
+      grid-template-columns: 1.35fr 0.85fr;
+      align-items: center;
+   }
+
+   .header-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+   }
+}
+
+/* 2. Ajuste na quebra do Formulário de Contato (Melhor usabilidade) */
+@media (max-width: 860px) {
+   /* Removemos o .form-row daqui para que ele não quebre tão cedo */
+   .section-grid,
+   .skill-grid,
+   .project-grid {
+      grid-template-columns: 1fr;
+   }
+
+   /* Centraliza o card de perfil quando estiver empilhado, evitando que ele estique infinitamente */
+   .profile-card {
+      max-width: 450px;
+      justify-self: center;
+      width: 100%;
+   }
+   nav ul {
+      justify-content: center;
+   }
+}
+
+@media (max-width: 620px) {
+   .header-inner {
+      padding: var(--space-md);
+   }
+
+   #sobre,
+   #contato,
+   .section-surface {
+      margin: var(--space-md);
+      padding: var(--space-lg) var(--space-md);
+   }
+
+   .section-header {
+      padding-top: 0;
+   }
+
+   .project-card,
+   .skill-card,
+   .profile-card {
+      border-radius: 20px;
+   }
+}
+
+/* Nova regra para telas realmente pequenas (Celulares verticais) */
+@media (max-width: 580px) {
+   /* 1. Ajuste do Formulário (Mantendo o que fizemos antes) */
+   .form-row {
+      grid-template-columns: 1fr;
+   }
+
+   /* 2. Ajuste Global de Espaçamento e Tipografia de Base */
+   :root {
+      --space-xl: 24px; /* Reduz o espaçamento vertical entre as seções */
+      --space-lg: 16px; /* Reduz o espaçamento interno padrão */
+   }
+
+   header h1 {
+      font-size: 1.75rem; /* Título principal mais compacto */
+   }
+
+   .section-header h2, 
+   #sobre h2 {
+      font-size: 1.5rem; /* Títulos das seções menores para não quebrar linhas abruptamente */
+      line-height: 1.2;
+   }
+
+   /* 3. Ajuste dos Cartões (Geral) */
+   .project-card,
+   .skill-card,
+   .profile-card {
+      padding: var(--space-lg); /* Diminui o recuo interno para dar mais espaço ao texto */
+      border-radius: 16px; /* Arredondamento levemente menor para combinar com a tela menor */
+   }
+
+   /* 4. Ajuste Específico do Cartão de Perfil (Sobre Mim) */
+   .profile-card {
+      max-width: 100%; /* Ocupa a largura disponível da seção */
+   }
+
+   .profile-image-wrapper {
+      max-width: 200px; /* Reduz o tamanho da foto para não empurrar o conteúdo muito para baixo */
+      box-shadow: 3px 3px 0px var(--secondary); /* Sombra proporcional ao tamanho menor */
+   }
+
+   .profile-details ul {
+      font-size: 0.9rem; /* Texto dos tópicos ligeiramente menor */
+   }
+
+   /* 5. Ajuste dos Cartões de Projetos e Stacks */
+   .project-card h3,
+   .skill-card h3 {
+      font-size: 1.2rem; /* Títulos dos cards mais harmônicos */
+   }
+
+   .project-card p,
+   .skill-card p {
+      font-size: 0.9rem; /* Descrições dos projetos mais legíveis em telas pequenas */
+   }
+
+   .project-actions a {
+      padding: 0.6rem 0.85rem; /* Botões do projeto ligeiramente menores */
+      font-size: 0.85rem;
+      text-align: center;
+      flex: 1; /* Faz os botões (GitHub/Demo) dividirem o espaço igualmente lado a lado */
+   }
+}
