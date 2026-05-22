@@ -41,8 +41,7 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-   <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;700&display=swap"
+   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -67,8 +66,9 @@
                Desenvolvedora de Sistemas focada em interfaces modernas, responsivas e alta usabilidade.
             </p>
          </div>
+
          <!-- Links de ancoragem para navegação interna na página -->
-         <nav class="main-nav" aria-label="Navegação principal">
+         <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
             <ul>
                <li><a href="#sobre">Sobre</a></li>
                <li><a href="#stacks">Stacks</a></li>
@@ -76,6 +76,20 @@
                <li><a href="#contato">Contato</a></li>
             </ul>
          </nav>
+
+         <a class="menu-toggle menu-open" href="#menu-principal" aria-label="Abrir menu de navegação"
+            aria-controls="menu-principal">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+         </a>
+
+         <a class="menu-toggle menu-close" href="#" aria-label="Fechar menu de navegação"
+            aria-controls="menu-principal">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+         </a>
       </div>
    </header>
 
@@ -190,6 +204,10 @@
             <article class="project-card">
 
                <div class="project-top">
+
+                  <div class="project-status">
+                     <span>Em desenvolvimento</span>
+                  </div>
                   <h3>Landing Page Tech</h3>
 
                   <div class="project-tags">
@@ -205,12 +223,14 @@
                </p>
 
                <div class="project-actions">
-                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do projeto Landing Page Tech">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                     aria-label="Ver repositório do projeto Landing Page Tech">
                      <i class="fa-brands fa-github" aria-hidden="true"></i>
                      GitHub
                   </a>
 
-                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir demo do projeto Landing Page Tech">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                     aria-label="Abrir demo do projeto Landing Page Tech">
                      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                      Demo
                   </a>
@@ -221,7 +241,12 @@
             <!-- Projeto 2 -->
             <article class="project-card">
 
+
                <div class="project-top">
+
+                  <div class="project-status">
+                     <span>Em desenvolvimento</span>
+                  </div>
                   <h3>Dashboard Analítico</h3>
 
                   <div class="project-tags">
@@ -237,12 +262,14 @@
                </p>
 
                <div class="project-actions">
-                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do projeto Dashboard Analítico">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                     aria-label="Ver repositório do projeto Dashboard Analítico">
                      <i class="fa-brands fa-github" aria-hidden="true"></i>
                      GitHub
                   </a>
 
-                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir demo do projeto Dashboard Analítico">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                     aria-label="Abrir demo do projeto Dashboard Analítico">
                      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                      Demo
                   </a>
@@ -254,6 +281,11 @@
             <article class="project-card">
 
                <div class="project-top">
+
+                  <div class="project-status">
+                     <span>Em desenvolvimento</span>
+                  </div>
+
                   <h3>Formulário de Contato</h3>
 
                   <div class="project-tags">
@@ -261,6 +293,7 @@
                      <span>UX</span>
                      <span>Accessibility</span>
                   </div>
+
                </div>
 
                <p>
@@ -269,12 +302,14 @@
                </p>
 
                <div class="project-actions">
-                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver repositório do projeto Formulário de Contato">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                     aria-label="Ver repositório do projeto Formulário de Contato">
                      <i class="fa-brands fa-github" aria-hidden="true"></i>
                      GitHub
                   </a>
 
-                  <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir demo do projeto Formulário de Contato">
+                  <a href="#" target="_blank" rel="noopener noreferrer"
+                     aria-label="Abrir demo do projeto Formulário de Contato">
                      <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                      Demo
                   </a>

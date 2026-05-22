@@ -96,10 +96,6 @@ textarea:focus-visible {
    outline-offset: 4px;
 }
 
-section {
-   scroll-margin-top: 9rem;
-}
-
 header {
    position: sticky;
    top: 0;
@@ -113,10 +109,15 @@ header {
 .header-inner {
    max-width: 1200px;
    margin: 0 auto;
-   padding: var(--space-lg);
-   display: flex;
-   flex-direction: column;
+   padding: var(--space-md);
+   display: grid;
+   grid-template-columns: 1fr auto;
+   align-items: center;
    gap: var(--space-md);
+}
+
+section[id] {
+   scroll-margin-top: 136px;
 }
 
 .eyebrow {
@@ -128,24 +129,98 @@ header {
 }
 
 header h1 {
-   font-size: clamp(2rem, 4vw, 3.5rem);
+   font-size: clamp(1.75rem, 8vw, 2.25rem);
    margin-bottom: var(--space-sm);
 }
 
 .subtitle {
    max-width: 720px;
    color: rgba(var(--text-rgb), 0.86);
+   font-size: 0.95rem;
+}
+
+.menu-toggle {
+   width: 44px;
+   height: 44px;
+   display: inline-flex;
+   grid-column: 2;
+   grid-row: 1;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 5px;
+   border: 1px solid rgba(var(--text-rgb), 0.12);
+   border-radius: var(--radius);
+   background: rgba(var(--text-rgb), 0.08);
+   color: var(--text);
+   cursor: pointer;
+   text-decoration: none;
+   transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+   background: rgba(var(--primary-rgb), 0.16);
+   border-color: rgba(var(--primary-rgb), 0.35);
+}
+
+.menu-toggle span {
+   width: 20px;
+   height: 2px;
+   border-radius: 999px;
+   background: currentColor;
+   transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-close {
+   display: none;
+}
+
+.menu-close span:nth-child(1) {
+   transform: translateY(7px) rotate(45deg);
+}
+
+.menu-close span:nth-child(2) {
+   opacity: 0;
+}
+
+.menu-close span:nth-child(3) {
+   transform: translateY(-7px) rotate(-45deg);
 }
 
 .main-nav ul {
    list-style: none;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   gap: var(--space-md);
+   display: grid;
+   gap: var(--space-sm);
+}
+
+.main-nav {
+   display: none;
+   grid-column: 1 / -1;
+   width: 100%;
+   padding: var(--space-sm);
+   border: 1px solid rgba(var(--text-rgb), 0.08);
+   border-radius: 16px;
+   background: rgba(var(--background-rgb), 0.72);
+}
+
+.main-nav:target {
+   display: block;
+}
+
+.main-nav:target ~ .menu-open {
+   display: none;
+}
+
+.main-nav:target ~ .menu-close {
+   display: inline-flex;
 }
 
 .main-nav a {
+   display: flex;
+   align-items: center;
+   min-height: 44px;
+   padding: 0 var(--space-sm);
    color: var(--text);
    text-decoration: none;
    font-weight: 500;
@@ -178,16 +253,16 @@ header h1 {
 }
 
 main {
-   max-width: 1024px;
+   max-width: 1180px;
    margin: 0 auto;
-   padding: 0 var(--space-md);
+   padding: 0 var(--space-sm);
 }
 
 .section-surface {
    background: rgba(var(--surface-rgb), 0.92);
    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.18);
-   border-radius: 24px;
-   margin: calc(var(--space-xl) * 0.75) 0;
+   border-radius: 16px;
+   margin: var(--space-md) 0;
 }
 
 .section-header,
@@ -197,12 +272,13 @@ main {
 }
 
 .section-header {
-   padding: var(--space-xl) var(--space-md) 0;
+   padding: var(--space-lg) var(--space-md) 0;
 }
 
 .section-label {
    display: inline-flex;
-   padding: 0.5rem 0.85rem;
+   width: fit-content;
+   padding: 0.45rem 0.75rem;
    background: rgba(var(--primary-rgb), 0.14);
    color: var(--primary);
    border-radius: 999px;
@@ -214,8 +290,8 @@ main {
 
 .section-header h2,
 #sobre h2 {
-   font-size: clamp(2rem, 3vw, 2.75rem);
-   line-height: 1.05;
+   font-size: clamp(1.5rem, 8vw, 2rem);
+   line-height: 1.15;
 }
 
 .section-description,
@@ -223,16 +299,24 @@ main {
 .about-copy p {
    max-width: 760px;
    color: rgba(var(--text-rgb), 0.82);
+   text-align: justify;
 }
 
 .section-description {
-   padding: var(--space-md) var(--space-md) var(--space-xl);
+   padding: var(--space-sm) var(--space-md) var(--space-lg);
 }
 
 .section-grid {
    grid-template-columns: 1fr;
    gap: var(--space-lg);
-   padding: var(--space-xl) var(--space-md) var(--space-xl);
+   padding: var(--space-lg) var(--space-md);
+}
+
+/* O mesmo respiro do contato nos titulos acessados pelo menu. */
+#sobre .section-grid,
+#stacks .section-header,
+#projetos .section-header {
+   padding-top: var(--space-xl);
 }
 
 .about-copy {
@@ -247,8 +331,8 @@ main {
 }
 
 .social-links a {
-   width: 52px;
-   height: 52px;
+   width: 48px;
+   height: 48px;
 
    display: flex;
    align-items: center;
@@ -297,7 +381,7 @@ main {
 .profile-card {
    background: rgba(var(--background-rgb), 0.7);
    border: 1px solid rgba(var(--text-rgb), 0.08);
-   border-radius: 24px;
+   border-radius: 16px;
    padding: var(--space-lg);
    display: grid;
    gap: var(--space-md);
@@ -307,9 +391,9 @@ main {
 
 .profile-image-wrapper {
    width: 100%;
-   max-width: 280px;
+   max-width: 220px;
    aspect-ratio: 1 / 1;
-   border-radius: 24px;
+   border-radius: 16px;
    overflow: hidden;
    border: 1px solid rgba(var(--text-rgb), 0.08);
    box-shadow: 4px 4px 0px var(--secondary);
@@ -369,7 +453,7 @@ main {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
    gap: var(--space-md);
-   padding: var(--space-xl) var(--space-md) var(--space-xl);
+   padding: var(--space-lg) var(--space-md);
 }
 
 .skill-card {
@@ -389,11 +473,37 @@ main {
    gap: 0.9rem;
 }
 
+/* Mantem o status no limite do card para nao competir com o titulo. */
+.project-status {
+   display: flex;
+   justify-content: flex-end;
+   width: 100%;
+}
+
+.project-status span {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.4rem;
+
+   padding: 0.4rem 0.8rem;
+
+   border-radius: 999px;
+
+   background: rgba(var(--accent-rgb), 0.12);
+
+   color: var(--accent);
+
+   font-size: 0.8rem;
+   font-weight: 600;
+
+   width: fit-content;
+}
+
 .project-grid {
    display: grid;
    gap: var(--space-md);
    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-   padding: 0 var(--space-md) var(--space-xl);
+   padding: 0 var(--space-md) var(--space-lg);
 }
 
 .project-card {
@@ -401,7 +511,7 @@ main {
 
    border: 1px solid rgba(var(--text-rgb), 0.08);
 
-   border-radius: 24px;
+   border-radius: 16px;
 
    padding: var(--space-lg);
 
@@ -439,6 +549,7 @@ main {
 .project-card h3 {
    margin: 0;
    font-size: 1.25rem;
+   line-height: 1.25;
 }
 
 .project-card p {
@@ -481,6 +592,7 @@ main {
    justify-content: center;
    gap: 0.5rem;
    min-height: 44px;
+   flex: 1 1 100%;
 
    color: var(--text);
 
@@ -512,7 +624,7 @@ main {
 }
 
 #contato {
-   padding: var(--space-xl) var(--space-md) var(--space-xl);
+   padding: var(--space-lg) var(--space-md);
 }
 
 .contact-form {
@@ -524,7 +636,7 @@ main {
 .form-row {
    display: grid;
    gap: var(--space-md);
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 1fr;
 }
 
 .form-field {
@@ -564,7 +676,7 @@ textarea:focus {
    border: none;
    font-weight: 700;
    cursor: pointer;
-   justify-self: start;
+   justify-self: stretch;
 }
 
 .btn-primary:hover,
@@ -585,125 +697,200 @@ footer {
    margin-top: var(--space-xl);
 }
 
-@media (min-width: 860px) {
+/* Celular pequeno: compensa a altura do header/menu mobile. */
+@media (max-width: 480px) {
+   :root {
+      --space-lg: 16px;
+      --space-xl: 24px;
+   }
+
+   section[id] {
+      scroll-margin-top: 193px;
+   }
+
+   .header-inner {
+      gap: var(--space-sm);
+   }
+
+   .eyebrow {
+      font-size: 0.68rem;
+   }
+
+   .subtitle,
+   .project-card p,
+   .profile-details ul {
+      font-size: 0.9rem;
+   }
+
+   .section-label,
+   .project-tags span,
+   .project-status span {
+      font-size: 0.75rem;
+   }
+
+   .project-actions a {
+      padding: 0.7rem 0.85rem;
+   }
+}
+
+/* Celular medio: mantem uma coluna e compensa o header sticky. */
+@media (min-width: 481px) {
+   section[id] {
+      scroll-margin-top: 180px;
+   }
+
+   main {
+      padding: 0 var(--space-md);
+   }
+
+   .section-surface {
+      margin: var(--space-lg) 0;
+      border-radius: 20px;
+   }
+
+   .section-header,
+   .section-grid,
+   .skill-grid,
+   .project-grid,
+   #contato {
+      padding-right: var(--space-lg);
+      padding-left: var(--space-lg);
+   }
+
+   .profile-image-wrapper {
+      max-width: 240px;
+   }
+
+   .project-actions a {
+      flex-basis: calc(50% - var(--space-sm));
+   }
+}
+
+/* Tablet: menu hamburguer permanece, entao o offset acompanha o header maior. */
+@media (min-width: 768px) {
+   section[id] {
+      scroll-margin-top: 200px;
+   }
+
+   .header-inner {
+      padding: var(--space-lg);
+   }
+
+   header h1 {
+      font-size: clamp(2.25rem, 5vw, 3rem);
+   }
+
+   .subtitle {
+      font-size: 1rem;
+   }
+
+   .section-surface {
+      border-radius: 24px;
+      margin: calc(var(--space-xl) * 0.75) 0;
+   }
+
+   .section-header h2,
+   #sobre h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+   }
+
+   .section-grid {
+      gap: var(--space-xl);
+   }
+
+   .profile-card {
+      max-width: 520px;
+      justify-self: center;
+      width: 100%;
+      border-radius: 24px;
+   }
+
+   .profile-image-wrapper {
+      max-width: 280px;
+      border-radius: 24px;
+   }
+
+   .skill-grid,
+   .project-grid,
+   .form-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+
+   .btn-primary {
+      justify-self: start;
+      min-width: 160px;
+   }
+}
+
+/* Tablet: respiro extra no topo dos blocos mais densos. */
+@media (min-width: 768px) and (max-width: 1023px) {
+   #sobre .section-grid,
+   #projetos .section-header {
+      padding-top: 3.5rem;
+   }
+}
+
+/* Desktop: menu horizontal reduz a altura visual, mantendo margem confortavel. */
+@media (min-width: 1024px) {
+   section[id] {
+      scroll-margin-top: 205px;
+   }
+
+   .header-inner {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-xl);
+   }
+
+   .menu-toggle {
+      display: none;
+   }
+
+   .main-nav {
+      display: block;
+      grid-column: auto;
+      width: auto;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+   }
+
+   .main-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: var(--space-md);
+   }
+
+   .main-nav a {
+      min-height: auto;
+      padding: 0;
+   }
+
+   header h1 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+   }
+
+   .section-header,
+   .section-grid,
+   .skill-grid,
+   .project-grid,
+   #contato {
+      padding-right: var(--space-xl);
+      padding-left: var(--space-xl);
+   }
+
    .section-grid {
       grid-template-columns: 1.35fr 0.85fr;
       align-items: center;
    }
 
-   .header-inner {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+   .profile-card {
+      max-width: none;
    }
-}
 
-/* 2. Ajuste na quebra do Formulário de Contato (Melhor usabilidade) */
-@media (max-width: 860px) {
-   /* Removemos o .form-row daqui para que ele não quebre tão cedo */
-   .section-grid,
-   .skill-grid,
    .project-grid {
-      grid-template-columns: 1fr;
-   }
-
-   /* Centraliza o card de perfil quando estiver empilhado, evitando que ele estique infinitamente */
-   .profile-card {
-      max-width: 450px;
-      justify-self: center;
-      width: 100%;
-   }
-   .main-nav ul {
-      justify-content: center;
-   }
-}
-
-@media (max-width: 620px) {
-   .header-inner {
-      padding: var(--space-md);
-   }
-
-   .section-surface {
-      margin: var(--space-md) 0;
-   }
-
-   .section-header {
-      padding-top: var(--space-lg);
-   }
-
-   #contato {
-      padding-right: 0;
-      padding-left: 0;
-   }
-
-   .project-card,
-   .skill-card,
-   .profile-card {
-      border-radius: 20px;
-   }
-}
-
-/* Nova regra para telas realmente pequenas (Celulares verticais) */
-@media (max-width: 580px) {
-   /* 1. Ajuste do Formulário (Mantendo o que fizemos antes) */
-   .form-row {
-      grid-template-columns: 1fr;
-   }
-
-   /* 2. Ajuste Global de Espaçamento e Tipografia de Base */
-   :root {
-      --space-xl: 24px; /* Reduz o espaçamento vertical entre as seções */
-      --space-lg: 16px; /* Reduz o espaçamento interno padrão */
-   }
-
-   header h1 {
-      font-size: 1.75rem; /* Título principal mais compacto */
-   }
-
-   .section-header h2, 
-   #sobre h2 {
-      font-size: 1.5rem; /* Títulos das seções menores para não quebrar linhas abruptamente */
-      line-height: 1.2;
-   }
-
-   /* 3. Ajuste dos Cartões (Geral) */
-   .project-card,
-   .skill-card,
-   .profile-card {
-      padding: var(--space-lg); /* Diminui o recuo interno para dar mais espaço ao texto */
-      border-radius: 16px; /* Arredondamento levemente menor para combinar com a tela menor */
-   }
-
-   /* 4. Ajuste Específico do Cartão de Perfil (Sobre Mim) */
-   .profile-card {
-      max-width: 100%; /* Ocupa a largura disponível da seção */
-   }
-
-   .profile-image-wrapper {
-      max-width: 200px; /* Reduz o tamanho da foto para não empurrar o conteúdo muito para baixo */
-      box-shadow: 3px 3px 0px var(--secondary); /* Sombra proporcional ao tamanho menor */
-   }
-
-   .profile-details ul {
-      font-size: 0.9rem; /* Texto dos tópicos ligeiramente menor */
-   }
-
-   /* 5. Ajuste dos Cartões de Projetos e Stacks */
-   .project-card h3,
-   .skill-card h3 {
-      font-size: 1.2rem; /* Títulos dos cards mais harmônicos */
-   }
-
-   .project-card p,
-   .skill-card p {
-      font-size: 0.9rem; /* Descrições dos projetos mais legíveis em telas pequenas */
-   }
-
-   .project-actions a {
-      padding: 0.6rem 0.85rem; /* Botões do projeto ligeiramente menores */
-      font-size: 0.85rem;
-      text-align: center;
-      flex: 1; /* Faz os botões (GitHub/Demo) dividirem o espaço igualmente lado a lado */
+      grid-template-columns: repeat(3, minmax(0, 1fr));
    }
 }
 
