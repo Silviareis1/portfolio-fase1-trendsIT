@@ -8,7 +8,7 @@
 
 ## 🚀 Sobre o Projeto
 
-O **Portfolio do projeto TrendsIT 2026** representa minha identidade digital como desenvolvedora front-end, reunindo design moderno, organização visual e boas práticas de desenvolvimento web.
+O **Portfólio do projeto TrendsIT 2026** representa minha identidade digital como desenvolvedora front-end, reunindo design moderno, organização visual e boas práticas de desenvolvimento web.
 
 O projeto foi construído com foco em:
 
@@ -27,7 +27,7 @@ O projeto foi construído com foco em:
 
 ---
 
-# 🛠️ Funcionalidades
+# 📌 Funcionalidades
 
 ✅ Navegação clara entre seções  
 ✅ Hero section com posicionamento técnico  
@@ -61,13 +61,13 @@ O projeto foi construído com foco em:
 Clone o repositório:
 
 ```bash
-git clone https://github.com/Silviareis1/portfolio-fase1-trendsIT.git
+git clone https://github.com/Silviareis1/portfolio-front-end-silvia-reis.git
 ```
 
 Acesse a pasta do projeto:
 
 ```bash
-cd portfolio-fase1-trendsIT
+cd portfolio-front-end-silvia-reis
 ```
 
 Abra o arquivo `index.html` diretamente no navegador  
@@ -123,5 +123,4 @@ Este projeto está sob a licença MIT.
 <p align="center">
   Desenvolvido com 💙 por Silvia Reis
 </p>
-
 
