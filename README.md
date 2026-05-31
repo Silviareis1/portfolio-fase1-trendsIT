@@ -13,7 +13,7 @@ O **Portfolio do projeto TrendsIT 2026** representa minha identidade digital com
 O projeto foi construído com foco em:
 
 - 🎨 Interface moderna e profissional
-- 📱 Responsividade mobile-first
+- 📱 Layout responsivo para diferentes dispositivos
 - ♿ Acessibilidade e usabilidade
 - ⚡ Navegação simples e intuitiva
 - 🧩 Estrutura limpa e escalável
@@ -22,14 +22,17 @@ O projeto foi construído com foco em:
 ---
 
 # 🛠️ Tecnologias Utilizadas
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/Responsive%20Design-000000?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Responsive Design">
-<img src="https://img.shields.io/badge/Design%20Tokens-6C63FF?style=for-the-badge&logo=figma&logoColor=white" alt="Design Tokens"> <img src="https://img.shields.io/badge/Google%20Fonts-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white" alt="Google Fonts">
-<img src="https://img.shields.io/badge/Mobile%20First-FF4088?style=for-the-badge&logo=android&logoColor=white" alt="Mobile First"> <img src="https://img.shields.io/badge/UI%2FUX-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="UI UX">
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+<img src="https://img.shields.io/badge/Responsive%20Design-000000?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Responsive Design">
+<img src="https://img.shields.io/badge/Design%20Tokens-6C63FF?style=for-the-badge&logo=figma&logoColor=white" alt="Design Tokens">
+<img src="https://img.shields.io/badge/Google%20Fonts-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white" alt="Google Fonts">
+<img src="https://img.shields.io/badge/UI%2FUX-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="UI UX">
 
 
 ---
 
-# 📌 Funcionalidades
+# 🛠️ Funcionalidades
 
 ✅ Navegação clara entre seções  
 ✅ Hero section com posicionamento técnico  
@@ -63,13 +66,13 @@ O projeto foi construído com foco em:
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/portfolio-fase1.git
+git clone https://github.com/Silviareis1/portfolio-fase1-trendsIT.git
 ```
 
 Acesse a pasta do projeto:
 
 ```bash
-cd portfolio-fase1
+cd portfolio-fase1-trendsIT
 ```
 
 Abra o arquivo `index.html` diretamente no navegador  
@@ -79,13 +82,7 @@ ou utilize uma extensão como **Live Server** no VS Code.
 
 # 📱 Responsividade
 
-O layout foi desenvolvido seguindo a abordagem:
-
-```txt
-Mobile First
-```
-
-Adaptando-se para:
+O layout foi desenvolvido para se adaptar a diferentes tamanhos de tela, proporcionando uma experiência consistente em:
 
 - Smartphones
 - Tablets
@@ -131,3 +128,5 @@ Este projeto está sob a licença MIT.
 <p align="center">
   Desenvolvido com 💙 por Silvia Reis
 </p>
+
+
